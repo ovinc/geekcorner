@@ -16,6 +16,18 @@ See https://help.ubuntu.com/community/UsingTheTerminal
 | Alt + F | Moves forward one word at a time.
 | Alt + C | Capitalizes letter where cursor is and moves to end of word.
 
+## Shell management
+
+| Shortcut | Description |
+| -------- | ----------- |
+| Ctrl + Alt + T | Open terminal window |
+| Ctrl + L (or `clear`) | Clear shell (more precisely, move command prompt to top of screen) |
+| `reset` | Reset shell (actual clear, previous lines are erased) |
+| F11 | Make shell full screen |
+| Ctrl (Shift) +/- | Increase/Decrease font size |
+
+
+
 ## History of commands / typing
 
 | Shortcut | Description |
@@ -25,7 +37,7 @@ See https://help.ubuntu.com/community/UsingTheTerminal
 | Enter | When you have the command you want.|
 | tab | A very useful feature. It autocompletes any commands or filenames, if there's only one option, or else gives you a list of options. |
 | Ctrl + R | Searches for commands you've already typed. When you have entered a very long, complex command and need to repeat it, using this key combination and then typing a portion of the command will search through your command history. When you find it, simply press Enter. |
-| History |	The history command shows a very long list of commands that you have typed. Each command is displayed next to a number. You can type `!x` to execute a previously typed command from the list (replace the X with a number). If you history output is too long, then use `history \| less` for a scrollable list. |
+| `history` |	The history command shows a very long list of commands that you have typed. Each command is displayed next to a number. You can type `!x` to execute a previously typed command from the list (replace the x with a number). If you history output is too long, then use `history \| less` for a scrollable list. |
 
 ### Example
 you ran history and found you want to use command listed as number 1967. Simply enter
@@ -34,5 +46,5 @@ you ran history and found you want to use command listed as number 1967. Simply 
 ```
 
 ### See also
-search through history with grep, see in `grep.md`.
+search through history with grep, see [grep](grep.md).
 

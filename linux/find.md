@@ -55,20 +55,7 @@ Files where anyone can read, write or execute
 find . -perm 777
 ```
 
-#### Permission codes
-
-| Number | Permission Type | Symbol |
-| ------ | --------------- | ------ |
-| 0 | No Permission | --- |
-| 1 | Execute | --x |
-| 2 | Write | -w- |
-| 3 | Execute + Write | -wx |
-| 4 | Read | r-- |
-| 5 | Read + Execute | r-x |
-| 6 | Read +Write | rw- |
-| 7 | Read + Write +Execute | rwx |
-
-From <https://www.guru99.com/file-permissions.html>
+(see [permissions](permissions.md))
 
 
 ## Use results of find to do some other actions
@@ -98,7 +85,7 @@ find . -exec function {} \;
     Same as above but with `mv`, but be careful that the folder is already created and to include / in the end, because if not and you put a folder without the / in the end, it will move all files into a single file called folder, overwriting all of them except the last one).
     For example (correct call):
     ```bash
-    find .-name "*" -type f -exec mv {} "New Folder/" \;
+    find . -name "*" -type f -exec mv {} "New Folder/" \;
     ```
     will move all files in current directory to a subdirectory (already created) named "New Folder".
 

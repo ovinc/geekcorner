@@ -36,7 +36,7 @@ https://help.ubuntu.com/community/UsingTheTerminal
 
 ## Shell navigation
 
-(see also `shortcuts.md`)
+(see also [shortcuts](shortcuts.md))
 
 | Command | Effect |
 | ---- | ---- |
@@ -73,7 +73,7 @@ https://help.ubuntu.com/community/UsingTheTerminal
         ```
         (note: does not work if "*.tsv" is used instead of *.tsv)
 
-    - If more complicated, use find (see `find.md`)
+    - If more complicated, use find (see [find](find.md))
 
 (see e.g. https://askubuntu.com/questions/172629/how-do-i-move-all-files-from-one-folder-to-another-using-the-command-line)
 
@@ -89,7 +89,9 @@ https://help.ubuntu.com/community/UsingTheTerminal
 - Show only head/tail of file (first/last 10 lines)
     ```bash
     head my_file.txt
+    head -n 3 my_file.txt  # only 3 lines
     tail my_file.txt
+    tail -f my_file.txt    # live update (follow)
     ```
 
 - Concatenate several files to create new file
@@ -200,12 +202,27 @@ https://help.ubuntu.com/community/UsingTheTerminal
     ls -la *.py
     ```
 
-## Commands and arguments
+## Documentation (`man`)
 
-- Get documentation (manual) for a command
-    ```bash
-    man ...
-    ```
+The `man` (manual) command can be used to check the documentation for other commands, e.g.
+```bash
+man rsync
+```
+
+Within the *man* environment, one can:
+- navigate with arrows (up/down) or page up/down
+- Use `/` to search for a term, e.g. `/archive` (and then `n` for next occurrence, `N` for previous)
+- Use `?` instead of `/` to search backwards
+- type `G` to go to beginning of page (`shift` + `G` to go to end)
+- type `H` for help to see other navigation options etc.
+
+*NOTE*: builtins commands like `cd`, `ls` etc. do not have individual manual pages, instead help can be found with
+```bash
+man builtins
+```
+
+
+## Commands and arguments
 
 - Check executable corresponding to command (e.g. `rsync`)
     ```bash
@@ -249,6 +266,16 @@ https://help.ubuntu.com/community/UsingTheTerminal
     !:0
     ```
     (equivalent to 0th argument).
+
+- Chaining commands
+    ```bash
+    # If first command fails, second one is not executed
+    sudo apt update && sudo apt upgrade
+
+    # If first command fails, second one is executed
+    sudo apt update; sudo apt upgrade
+
+    ```
 
 
 ## Aliases / symbolic links
