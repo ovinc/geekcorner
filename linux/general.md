@@ -34,6 +34,8 @@ https://help.ubuntu.com/community/UsingTheTerminal
     sudo reboot
     ```
 
+- Manage are the actuel folders the Desktop, Documents, Videos etc.: see `~/.config/user-dirs.dirs` (or `user-dirs.locale`).
+
 ## Shell navigation
 
 (see also [shortcuts](shortcuts.md))
@@ -45,6 +47,7 @@ https://help.ubuntu.com/community/UsingTheTerminal
 | `cd -` | Previous directory |
 | `cd ..` | Parent directory |
 | `pwd` | Print working (current) directory |
+| `xdg-open` | Open in GUI window (equivalent of MacOS's `open` or Windows' `start`) |
 
 
 ## File and directory management
@@ -122,6 +125,64 @@ https://help.ubuntu.com/community/UsingTheTerminal
         sed 's/Hello/Hola' my_file.txt > new_file.txt
         ```
 
+### List files and directories
+
+- Print as a list with details
+    ```bash
+    ls -l
+    ```
+
+- Print all files including hidden ones (starting with .)
+    ```bash
+    ls -a
+    ```
+    (equivalent to --all)
+
+- Print file sizes in human readable format (kB, MB etc.)
+    ```bash
+    ls -h
+    ```
+    (equivalent to --human-readable, needs to be combined with an option showing file size, e.g. ls -lh)
+
+- Use colorized output for better viewing
+    ```bash
+    ls --color
+    ```
+    (typically happen by default in Ubuntu, but not on macOS).
+
+- Sort `ls` output by modification time
+    ```bash
+    ls --t   # newest first
+    ls --rt  # oldest first
+    ```
+
+- List files with wildcard filter
+    ```bash
+    ls -la *.py
+    ```
+
+### Count files and directories
+
+The strategy here is to make a list of files/folders with one item per line and to count the number of lines with `wc -l`.
+
+- Count number of files and folders (non-recursively) in current folder
+    ```bash
+    ls -1 | wc -l
+    ```
+    (note: if done with `ls -l` instead of `ls -1`, gives $n + 1$ because there is an extra line *total* in the output).
+
+- Count files only
+    ```bash
+    find . -type f | wc -l   # includes sub-folders
+    find . -type f -maxdepth 1 | wc -l   # only current folder
+    ```
+
+- Count folders only
+    ```bash
+    find . -type d | wc -l  # includes sub-folders
+    find . -type d -maxdepth 1 | wc -l  # only current folder
+    ```
+
 ## Memory / processors
 
 - Look at processor activity
@@ -133,13 +194,31 @@ https://help.ubuntu.com/community/UsingTheTerminal
     ```bash
     df -h
     ```
-    (-h is for human readability, i.e. memory in MB etc.)
+    (-h is for human readability, i.e. memory in MB etc.), or
+    ```bash
+    findmnt -D
+    ```
 
     It is also possible to run continuously to monitor changes over time:
     ```bash
     watch df -h
     ```
     (watch is a more general command to repeat a command regularly).
+
+    In order to see only physical disks it is also possible to exclude other types, e.g.
+    ```bash
+    findmnt -D -t notmpfs,nosquashfs,notracefs,nodevtmpfs
+    ```
+
+- Print folder sizes in current directory, human readable format:
+    ```bash
+    du -sh *
+    ```
+    (which is a shortcut for:)
+    ```bash
+    du --summarize --human-readable *
+    ```
+    (du means disk usage)
 
 
 - Look at memory used by a specific folder
@@ -167,40 +246,6 @@ https://help.ubuntu.com/community/UsingTheTerminal
     *NOTE* typically not installed by default
     (see https://www.youtube.com/watch?v=ZRs5zVv_1UU)
 
-
-## List files and directories
-
-- Print as a list with details
-    ```bash
-    ls -l
-    ```
-
-- Print all files including hidden ones (starting with .)
-    ```bash
-    ls -a
-    ```
-    (equivalent to --all)
-
-- Print file sizes in human readable format (kB, MB etc.)
-    ```bash
-    ls -h
-    ```
-    (equivalent to --human-readable, needs to be combined with an option showing file size, e.g. ls -lh)
-
-- Print folder sizes in current directory, human readable format:
-    ```bash
-    du -sh *
-    ```
-    (which is a shortcut for:)
-    ```bash
-    du --summarize --human-readable *
-    ```
-    (du means disk usage)
-
-- List files with wildcard filter
-    ```bash
-    ls -la *.py
-    ```
 
 ## Documentation (`man`)
 
@@ -286,6 +331,11 @@ man builtins
     alias py=python3
     alias pym="python3 -m"
     source .bashrc
+    ```
+
+- List existing aliases
+    ```bash
+    alias
     ```
 
 - Create symbolic link
