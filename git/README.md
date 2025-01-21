@@ -1,10 +1,12 @@
 # git
 
+
 ## Basics
 
 - [Configuration](Config.md) of git
 - [Local](Local.md) and [remote](Remote.md) repositories
 - Managing [branches](Branches.md)
+- Creating and deleting [tags](Tags.md)
 - [Summary](Summary.md) of git workflow
 
 

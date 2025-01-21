@@ -2,19 +2,33 @@
 
 See https://help.ubuntu.com/community/UsingTheTerminal
 
+
+## Cursor motion
+
+| Shortcut | Description |
+| -------- | ----------- |
+| **Ctrl A** (or **Home**) | Go to beginning of line.
+| **Ctrl E** (or **End**) | Go to the end of a line.
+| **Esc B** (or **Alt B** [*])  | Go to the beginning of current or previous word (*backward*).
+| **Esc F** (or **Alt F** [*]) | Moves to the beginning of the next word (*forward*).
+
+[*] On a mac, this might require enabling an option to consider the alt key as the *Meta* key (Esc+), see e.g.
+https://stackoverflow.com/questions/81272/how-to-move-the-cursor-word-by-word-in-the-os-x-terminal
+or
+https://askubuntu.com/questions/903478/how-do-i-lowercase-uppercase-strings-with-a-shortcut-in-the-terminal
+
+
 ## Text management
 
 | Shortcut | Description |
 | -------- | ----------- |
-| Ctrl + A (or Home) | Moves the cursor to the start of a line. |
-| Ctrl+ E (or End) | Moves the cursor to the end of a line.
-| Esc + B | Moves to the beginning of the previous or current word.
-| Ctrl + K | Deletes from the current cursor position to the end of the line.
-| Ctrl + U | Deletes from the start of the line to the current cursor position.
-| Ctrl + W | Deletes the word before the cursor.
-| Alt + B | Goes back one word at a time.
-| Alt + F | Moves forward one word at a time.
-| Alt + C | Capitalizes letter where cursor is and moves to end of word.
+| **Ctrl K** | Deletes from the current cursor position to the end of the line.
+| **Ctrl U** | Deletes from the start of the line to the current cursor position (sometimes seems to erase the whole line actually).
+| **Ctrl W** | Deletes the part of the current word situated before the cursor.
+| **Ctrl Y** | Paste previously deleted text (*yank*)
+| **Alt C** | Capitalize letter where cursor is and move to end of word.
+| **Alt U** | Capitalize (*uppercase*) all letters in the current word to the right of the cursor and move the end of word.
+| **Alt L** | (Inverse of previous one): *lowercase* all letters in the current word to the right of the cursor and move the end of word.
 
 ## Shell management
 

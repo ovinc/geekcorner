@@ -29,6 +29,11 @@ But **attention** (noted at least on macOS):
     ```
     do the same thing, i.e. sync the contents of the two 2022 folders, similarly to above.
 
+    **NOTE**: to sync contents of current folder do
+    ```bash
+    rsync ./ destination
+    ```
+
 ## Sync with distant server
 
 - Push
@@ -43,6 +48,18 @@ But **attention** (noted at least on macOS):
 
 
 (uses SSH by defualt).
+
+
+## Difference between fwo folders
+
+Either use the `-i` option of `rsync` with `-n` (dry run); output is not very readable, but possibility to use `sed` to make it better, see:
+https://unix.stackexchange.com/questions/57305/rsync-compare-directories
+
+Or use `diff`, but it takes longer because it checks file contents and not only size and modification time; e.g.
+```bash
+diff -rq folder1 folder2
+```
+(`-r` is recursive, `-q` is for a brief report, in order to indicate only when file differ).
 
 
 ## Options
