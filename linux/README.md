@@ -6,6 +6,7 @@
     - keyboard [shortcuts](shortcuts.md)
     - file [permissions](permissions.md)
     - file [dates and times](datetime.md)
+    - [clipboard](clipboard.md) operations
 
 - Specific commands
     - [find](find.md) (search for folders and files)
