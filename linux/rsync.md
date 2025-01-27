@@ -61,6 +61,12 @@ diff -rq folder1 folder2
 ```
 (`-r` is recursive, `-q` is for a brief report, in order to indicate only when file differ).
 
+One can also exclude certain files/patterns from the search with the `-x` option, e.g.
+```bash
+diff -x '.DS_Store' folder1 folder2
+diff -x '.*' folder1 folder2  # all hidden files
+```
+
 
 ## Options
 
