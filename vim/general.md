@@ -18,6 +18,7 @@ One can list commands that one would input in command mode, e.g.
 
 ```vim
 set number
+syntax on
 ```
 
 *NOTE*: Use `"` to add comments
