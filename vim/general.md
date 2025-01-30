@@ -14,11 +14,23 @@ vim -O file1.txt file2.txt  # open in split mode (vertical)
 ## Configuration
 
 Create or edit the `.vimrc` file in the home folder.
-One can list commands that one would input in command mode, e.g.
+One can list commands that one would input in command mode, see examples below.
+
+### Appearance
 
 ```vim
-set number
-syntax on
+set number  " Show line numbers
+syntax on   " syntax highlighting
+```
+
+### Tabs and spaces
+
+In order to have automatic indentation depending on file type, and tabs that create 4 spaces:
+```vim
+filetype plugin indent on
+set tabstop=4
+set shiftwidth=4
+set expandtab
 ```
 
 *NOTE*: Use `"` to add comments

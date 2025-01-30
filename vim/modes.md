@@ -36,14 +36,18 @@ it is the default one when vim opens.
 | `h` | Move cursor *up* |
 
 #### Word by word
+
+In all the commands below, the lowercase letter moves to the next minor separation (space, parenthesis, punctuations etc.)
+while the capital letters move quicker, i.e. to major separations (space, newline, tab, etc.)
+
 | Key | Action |
 | -------- | ----------- |
-| `w` | Move cursor to *next word* |
-| `b` | Move cursor to *previous word* |
-| `W` | Move cursor to *next blank space* |
-| `B` | Move cursor to *previous blank space* |
+| `b, B` | Move to beginning of word (or previous word) |
+| `e, E` | Move to end of word |
+| `w, W` | Move cursor to beginning of *next word* |
 
 #### Line by line
+
 | Key | Action |
 | -------- | ----------- |
 | `0` (or `^`) | Go to beginning of line |
@@ -51,6 +55,7 @@ it is the default one when vim opens.
 | `Enter` | Go to beginning of next line |
 
 #### Large moves
+
 | Key | Action |
 | -------- | ----------- |
 | `H` | Go to top of screen |
@@ -66,19 +71,41 @@ it is the default one when vim opens.
 
 ### Modify text
 
-| Key | Action |
-| -------- | ----------- |
-| `x` | Delete character |
-| `X` | Delete character to left of cursor |
-| `cw` | Replace (right) up to next space (go to insert mode) |
-| `cb` | Replace (left) down to previous space (go to insert mode) |
-| `cc` | Replace whole line (go to insert mode) |
-| `dw` | Delete (right) up to next space |
-| `db` | Delete (left) down to previous space |
-| `dd` | Delete whole line |
-| `r` | Substitute character with exactly 1 other character (to be typed right after `r`)
-| `s` | Substitute character with one or more characters (go to insert mode) |
+- Single character substitutions:
+    | Key | Action |
+    | -------- | ----------- |
+    | `x` | Delete character |
+    | `X` | Delete character to left of cursor |
+    | `r` | Substitute character with exactly 1 other character (to be typed right after `r`) |
+    | `s` | Substitute character with one or more characters (go to insert mode) |
 
+- Change (goes to insert mode):
+    | Key | Action |
+    | -------- | ----------- |
+    | `cw` | Replace (right) up to next space (go to insert mode) |
+    | `cb` | Replace (left) down to previous space (go to insert mode) |
+    | `cc` | Replace whole line (go to insert mode) |
+    | `c$` | Replace from cursor (included) to end of line |
+    | `c0` | Replace from beginning of line up to cursor (not included) |
+
+- Delete
+    | Key | Action |
+    | -------- | ----------- |
+    | `dw` | Delete (right) up to next space |
+    | `db` | Delete (left) down to previous space |
+    | `dd` | Delete whole line |
+    | `d$` | Delete from cursor (included) to end of line |
+    | `d0` | Delete from beginning of line up to cursor (not included) |
+
+- Indentation
+    | Key | Action |
+    | -------- | ----------- |
+    | `>>` | Indent line (indentation is set by `shiftwidth`) |
+    | `<<` | De-indent line |
+    | `==` | Re-indent line |
+
+*Note*: these commands can also be repeated, e.g. in order to delete 3 words: `d3w`
+(the principle is operator / [number] / motion)
 
 ## Insert mode
 
@@ -119,9 +146,32 @@ allows you to enter various commands by text, e.g. to save / exit, etc.
 
 *Note*: the difference between `x` and `wq` is that `x` writes only if there are modifications, and thus won't change the modification time in the metadata if there are no new edits, contrary to `wq` which will always change modification time.
 
-### Find and replace
+### Cursor motion
 
-Can be accomplished with `%s/str_to_search/str_replace/g`
+
+| Key | Action |
+| -------- | ----------- |
+| `:127` | Go to line 127 of file |
+
+
+### Find, replace
+
+- Find word
+    `/str_to_search` (forward search)
+    `?str_to_search` (backward search)
+    then:
+	- `n` for next occurrence
+        - `N` for previous occurrence
+
+- Find and replace word
+    `%s/str_to_search/str_replace/g`
+
+- Find previous (`#`) or next (`*`) occurrence of current word
+
+- To do case insensitive search, activate
+    `set ignorecase` (or `set ic`)
+    or deactivate with
+    `set noignorecase` (or `set noic`)
 
 
 ### Multiple files / buffers
@@ -159,6 +209,7 @@ Can be accomplished with `%s/str_to_search/str_replace/g`
 | `set number` (or `set nu`) | Show line numbers |
 | `set nonumber` | Hide line numbers |
 | `syntax on` | Turn on syntax highlighting (e.g. for Python) |
+
 
 ## Visual mode
 

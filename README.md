@@ -7,5 +7,6 @@ At the moment it includes :
 - [Linux](linux/README.md) (bash etc.)
 - [SSH](ssh/README.md)
 - [vim](vim/README.md) editor
+- [VSCode](vscode/README.md) editor
 
 (click on links above to access the different items)
