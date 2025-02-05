@@ -18,7 +18,7 @@ https://docs.oracle.com/cd/E19253-01/806-7612/editorvi-43/index.html
 | `x` | Save and Quit |
 | `wq`| Save if modifications and Quit |
 | `r file.txt`| Copy *file.txt* into current file |
-| `!`| Enter linux command from within vim|
+| `!`| Enter linux command from within vim |
 | Up arrow | Previous command |
 
 *Note*: the difference between `x` and `wq` is that `x` writes only if there are modifications, and thus won't change the modification time in the metadata if there are no new edits, contrary to `wq` which will always change modification time.
@@ -41,14 +41,16 @@ https://docs.oracle.com/cd/E19253-01/806-7612/editorvi-43/index.html
         - `N` for previous occurrence
 
 - Find and replace word
-    `%s/str_to_search/str_replace/g`
-
-- Find previous (`#`) or next (`*`) occurrence of current word
+    `%s/str_to_search/str_replace`
+    `%s/str_to_search/str_replace/g` (global)
+    `%s/str_to_search/str_replace/c` (ask for confirmation)
 
 - To do case insensitive search, activate
     `set ignorecase` (or `set ic`)
     or deactivate with
     `set noignorecase` (or `set noic`)
+
+*Note*: See also in normal mode: fFind previous (`#`) or next (`*`) occurrence of current word
 
 
 ## Multiple files / buffers
@@ -74,7 +76,6 @@ https://docs.oracle.com/cd/E19253-01/806-7612/editorvi-43/index.html
 | `vsplit file.txt` | Open file in split window (vertical) |
 | `vs file.txt` | Same |
 | `Ctrl w w`| Move from one split window to another |
-
 
 *NOTE*: It is possible to open the same file in two split windows, and changes to one window are also taken into account in the other window.
 
