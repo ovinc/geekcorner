@@ -3,6 +3,8 @@
 Accessed by pressing `:`;
 allows you to enter various commands by text, e.g. to save / exit, etc.
 
+*Note*: there is a history of commands, just press arrow keys after `:` to cycle through history, or `q:` to view the history all at once (after this, the commands can be edited and re-run using the usual vim commands from normal mode).
+
 See also
 https://docs.oracle.com/cd/E19253-01/806-7612/editorvi-43/index.html
 
@@ -33,24 +35,65 @@ https://docs.oracle.com/cd/E19253-01/806-7612/editorvi-43/index.html
 
 ## Find, replace
 
-- Find word
+### Find word
+
+(not really command mode, but close to it; don't type `:` for the commands below)
+
+- To find sequence of characters (can be embedded within larger word):
     `/str_to_search` (forward search)
     `?str_to_search` (backward search)
     then:
-	- `n` for next occurrence
-        - `N` for previous occurrence
+    - `n` for next occurrence
+    - `N` for previous occurrence
+    *Note*: some characters, e.g `/`, `*` etc. need to be escaped with a `\` in front.
 
-- Find and replace word
-    `%s/str_to_search/str_replace`
-    `%s/str_to_search/str_replace/g` (global)
-    `%s/str_to_search/str_replace/c` (ask for confirmation)
+- Find whole word by itself (`\<` and `\>`):
+    `/\<str_to_search\>` (forward search)
+    `?\<str_to_search\>` (backward search)
+   *Note*: equivalent to `*` (search current word forward) and `#` (backward) in normal mode.
 
-- To do case insensitive search, activate
-    `set ignorecase` (or `set ic`)
-    or deactivate with
-    `set noignorecase` (or `set noic`)
+### Find and replace word
 
-*Note*: See also in normal mode: fFind previous (`#`) or next (`*`) occurrence of current word
+- Find and replace in the whole document
+    `%s/str_to_search/str_replace` (will replace only first occurrences on each line)
+    `%s/str_to_search/str_replace/g` (will replace all occurrences -- *global*)
+
+- Find and replace only between lines 13 and 17
+    `13,17s/str_to_search/str_replace`
+
+- Ask for confirmation:
+    `%s/str_to_search/str_replace/c` 
+    will provide several options:
+        - `y/n`: yes/no
+        - `a`: all (after current selection, included)
+        - `q`: abort (quit)
+        - `l`: make this the last (equivalent of doing `y` then `q`
+        - `Ctrl Shift e` / `Ctrl Shift y` move down/up within the file
+
+*Note*: parameters can be combined, e.g. `%s/str_to_search/str_replace/cg`.
+
+### Case sensitive / insensitive search
+
+Either for a specific search, use the `\c` argument for case insensitive, e.g.
+`/\cstr_to_search`
+(note: case-sensitive is `\C`, which I think it the default so I'm not sure what it's for, maybe could be useful if `\c` and `\C` can be combined in a single search? Does not seem to be the case).
+
+Or, when using find and replace, use the `i` (case insensitive) or `I` (case sensitive) options, e.g. `%s/str_to_search/str_replace/gi`.
+
+Or, to change globally:
+`set ignorecase` (or `set ic`)
+or deactivate with
+`set noignorecase` (or `set noic`)
+
+### Word higlighting
+
+- Turn on: `:set hlsearch`
+- Turn off: `:set nohlsearch` (or `:nohl` or `:noh`)
+
+### Search history
+
+Press arrow keys after typing `/`, `?` etc.
+or to view it all at once : `q/` (after this, the commands can be edited and re-run using usual vim commands in normal mode).
 
 
 ## Multiple files / buffers

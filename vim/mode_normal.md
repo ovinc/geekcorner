@@ -3,6 +3,16 @@
 Accessed by pressing `ESC`;
 it is the default one when vim opens.
 
+Many commands have the form
+```
+[number] action [number] move
+```
+e.g., 
+```
+3d2w
+```
+will do three times the action of deleting two words.
+
 See also
 https://docs.oracle.com/cd/E19253-01/806-7612/editorvi-43/index.html
 or
@@ -17,7 +27,9 @@ josean.com/posts/vim-essentials-cheatcheet
 | `P` | Paste before/above |
 | `u` | Undo latest change |
 | `U` | Undo all changes made to a line (provided cursor has not moved out of the line) |
-| `Ctrl r`| Redo |
+| `Ctrl r` | Redo |
+| `Ctrl g` | Show info about file at the bottom of window |
+| `Ctrl w w` | Move from one split window to another |
 | `.` | Repeat the last text changing command at current position of cursor |
 
 
@@ -143,6 +155,7 @@ while the capital letters move quicker, i.e. to major separations (space, newlin
     | `>>` | Indent line (indentation is set by `shiftwidth`) |
     | `<<` | De-indent line |
     | `==` | Re-indent line |
+    | `>5j` | Indent 5 consecutive lines |
 
 - Case (upper/lower)
     | `~` | Change case of character (in normal mode) or selection (in visual mode) |

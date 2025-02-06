@@ -9,6 +9,7 @@ Accessed by pressing:
 - `O` to write to a new line *above*
 - `cc`, `cw`, `cb` to replace whole line, left of word, right of word, respectively (see *Modify text*)
 - `s` to substitute character (see *Modify text*)
+- `R` to replace multiple characters (instead of pushing text to the right, it will overwrite it)
 
 See also
 https://docs.oracle.com/cd/E19253-01/806-7612/editorvi-43/index.html
