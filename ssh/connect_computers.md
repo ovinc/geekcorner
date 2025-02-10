@@ -8,6 +8,13 @@ ssh username@address
 ```
 where `address` can be a hostname (machine name) or an IP address.
 
+*Note*: it is possible to obtain the username and the hostname on a machine using
+```bash
+whoami
+hostname
+```
+respectively.
+
 To quit the remote session
 ```bash
 logout
