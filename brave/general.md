@@ -42,3 +42,13 @@ See https://support.brave.com/hc/en-us/articles/360032272171-What-keyboard-short
 | Shortcut | Description |
 | -------- | ----------- |
 | ⌘ Shift I | Send current webpage by email
+
+
+## Web search
+
+Quick web searches using different engines can be started from the address bar, e.g.:
+- Google: `:g`
+- Brave: `:br`
+- Duckduckgo: `:d`
+(then type `space` and your search)
+
