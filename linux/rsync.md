@@ -34,6 +34,13 @@ But **attention** (noted at least on macOS):
     rsync ./ destination
     ```
 
+*Note* about **paths with spaces**: they don't work even when escaping the spaces with `\` nor with quotes around, because the command is decoded by the shell two times (see e.g. https://serverfault.com/questions/234876/escaping-spaces-in-a-remote-path-when-using-rsync-over-a-remote-ssh-connection)
+The solution is to use either quotes + `\`, or two nested quotes of different types (`"` and `'`), e.g.
+```bash
+rsync -aE "usename@hostname:Documents/Another\ Directory/"
+rsync -aE 'usename@hostname:"Documents/Another\ Directory/"'
+```
+
 ## Sync with distant server
 
 - Push
