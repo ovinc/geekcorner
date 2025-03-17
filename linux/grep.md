@@ -52,6 +52,19 @@ grep -B 4 "John Williams" my_file.txt
 grep -C 4 "John Williams" my_file.txt
 ```
 
+## Exclude some patterns
+
+Use the `-v` option, e.g. to find everything that does not contain "hello":
+```bash
+grep -v "hello" .
+```
+
+One way to search for one pattern while excluding another is to pipe the results of grep to grep, e.g.:
+```bash
+grep -nr "bye" . | grep -v "hello" 
+```
+will find all files that contain "bye" and that do not contain "hello".
+
 
 ## With regular expressions
 
