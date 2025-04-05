@@ -62,3 +62,12 @@ you ran history and found you want to use command listed as number 1967. Simply 
 ### See also
 search through history with grep, see [grep](grep.md).
 
+
+## Open terminal
+
+`Ctrl Alt T`
+
+By default in Ubuntu, it might be that this command opens another terminal.
+If this is the case, go to *Settings > Keyboard > Shortcut > Launchers* to deactivate the shortcut,
+and create in the *Custom shortcuts* menu a new shortcut with `Ctrl Alt T` pointing to your terminal of choice, e.g. `gnome-terminal`.
+

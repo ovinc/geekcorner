@@ -319,7 +319,6 @@ man builtins
 
     # If first command fails, second one is executed
     sudo apt update; sudo apt upgrade
-
     ```
 
 

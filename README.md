@@ -8,5 +8,7 @@ At the moment it includes :
 - [SSH](ssh/README.md)
 - [vim](vim/README.md) editor
 - [VSCode](vscode/README.md) editor
+- [Oh-My-Posh](ohmyposh/README.md) editor
+- [Cameras](cameras/README.md) setup
 
 (click on links above to access the different items)
