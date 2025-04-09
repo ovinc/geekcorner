@@ -37,13 +37,19 @@ For python programming to work, the following environment variable must be defin
 export GENICAM_GENTL64_PATH="/opt/ids_peak_[version]_[arch]/lib/ids/cti"
 ```
 (replacing the folder by the actual install folder name of IDS Peak)
-
-*NOTE*: the documentation says to write something like
+**but attention**, the `GENICAM_GENTL64_PATH` environment variable might already be defined
+(e.g. if another camera from another supplier is installed),
+which can be verified by checking if
 ```bash
-GENICAM_GENTL64_PATH=$GENICAM_GENTL64_PATH:/opt/ids_peak_[version]_[arch]/lib/ids/cti
+echo $GENICAM_GENTL64_PATH
 ```
-maybe in the case where the environment variable already exists, but in Ubuntu it does not work.
-(see e.g. https://en.ids-imaging.com/tl_files/downloads/ids-peak/readme/ids-peak-linux-readme-1.0_EN.html)
+returns anything. 
+If this is the case, it is better to just append the IDS path to the existing variable:
+```bash
+export GENICAM_GENTL64_PATH="$GENICAM_GENTL64_PATH:/opt/ids_peak_[version]_[arch]/lib/ids/cti"
+```
+and probably it works to always do this just in case other programs try to define the variable.
+(see e.g. https://en.ids-imaging.com/files/downloads/ids-peak/readme/ids-peak-linux-readme-2.15.0_EN.html)
 
 *NOTE*: examples scripts can be found in `local/src/ids/samples/peak/python`
 
