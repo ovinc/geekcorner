@@ -14,7 +14,10 @@ After installation (normally, in `opt/`), the camera needs to be "activated" by 
 ./ids_install_udev_rule.sh
 ```
 (from the install manual:
-*Under "/opt/ids_peak_[version]_[arch]/local/scripts" you can find a udev rule for the USB access the U3V cameras require. For a simple installation you can use the script install-udev-rule.sh in the same folder. Additionally you can find an uninstall script as well.*, see e.g. https://en.ids-imaging.com/tl_files/downloads/ids-peak/readme/ids-peak-linux-readme-1.0_EN.html
+*Under "/opt/ids_peak_[version]_[arch]/local/scripts" you can find a udev rule for the USB access the U3V cameras require. For a simple installation you can use the script install-udev-rule.sh in the same folder. Additionally you can find an uninstall script as well.*, see e.g. 
+https://en.ids-imaging.com/tl_files/downloads/ids-peak/readme/ids-peak-linux-readme-1.0_EN.html
+or more recent
+https://en.ids-imaging.com/files/downloads/ids-peak/readme/ids-peak-linux-readme-2.15.0_EN.html
 )
 
 Without this installation the camera just shows up as *U3V Producer 0x8000*
