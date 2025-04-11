@@ -53,3 +53,8 @@ and probably it works to always do this just in case other programs try to defin
 
 *NOTE*: examples scripts can be found in `local/src/ids/samples/peak/python`
 
+*NOTE*: some more specific documentation can be found in ids_peak_ipl, e.g. for pixel formats:
+https://en.ids-imaging.com/manuals/ids-peak/ids-peak-ipl-documentation/2.15.0/en/namespacepeak_1_1ipl.html#a90d4d9ed4b1b3407a4fadad1da4fec07
+
+*NOTE*: See GenICam_NamingConvention.pdf (in perso documentation folder) or downloadable here
+for e.g. the pixel format names etc.
