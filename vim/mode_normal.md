@@ -14,9 +14,9 @@ e.g.,
 will do three times the action of deleting two words.
 
 See also
-https://docs.oracle.com/cd/E19253-01/806-7612/editorvi-43/index.html
-or
-josean.com/posts/vim-essentials-cheatcheet
+- https://docs.oracle.com/cd/E19253-01/806-7612/editorvi-43/index.html
+- josean.com/posts/vim-essentials-cheatcheet
+- https://vim.rtorr.com/
 
 
 ## General
@@ -79,15 +79,18 @@ while the capital letters move quicker, i.e. to major separations (space, newlin
 | `0` | Go to beginning of line |
 | `^` | Go to beginning of line (first non-blank character) |
 | `$` | Go to end of line |
+| `g_` | Go to last non-blank character of line (on screen), see also `(` and `)` for sentences below |
 | `Enter` | Go to beginning of next line |
 | `f` + character | Go on next occurrence of specified character (*find*) |
 | `t` + character | Same, but goes before character instead of going on it (*towards*) |
 | `;`, `,` | After using `f` or `t`, allows to go to next or previous occurrence of character |
 
-### Move by paragraph / code block
+### Move by sentence / paragraph / code block
 
 | Key | Action |
 | --- | ------ |
+| `(` | Go to beginning of sentence (previous punctuation character) | 
+| `)` | Go to end of sentence (next punctuation character) |
 | `{` | Go to previous paragraph (i.e, blank line) |
 | `}` | Go to next paragraph |
 | `%` | Go to matching parenthesis, bracket, etc. |
