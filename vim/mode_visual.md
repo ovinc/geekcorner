@@ -17,6 +17,15 @@ One can then copy/cut etc.
 | `p` | Paste (*put*) |
 | `:sort ui` | Sort vselection (multiple lines) by alphabetical order of first character |
 
+### Put quotes, parenthese etc. around selection
+
+Visual mode can be useful to enclose some text into characters, e.g. "", (), etc.
+To do so, select the text in visual mode (cursor on the last character, e.g. with "e" to reach the end of the word without enclosing the space or comma after) and do
+`c""<ESC>P`
+`c()<ESC>P`
+which will change the text with the "", () etc., then copy the deleted text in them
+**NOTE** the uppercase P, which will paste the deleted text before the cursor, and thus within the "" (), etc. (a lowercase p will put it after).
+
 
 ## Visual block mode
 
