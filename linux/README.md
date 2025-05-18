@@ -13,6 +13,9 @@
     - [grep](grep.md) (search for file contents)
     - [rsync](rsync.md) (transfers / backups)
 
+- Hardware management
+    - [devices](devices.md) and peripherals
+
 - Tips and tricks
     - how to do [backups](backups.md)
     - [troubleshooting](troubleshooting.md)
