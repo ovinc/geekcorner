@@ -11,7 +11,7 @@ ls /dev/tty*
 
 To have information about a specific device, including vendor and product IDs, etc. (which can be useful for udev rules, see below)
 ```bash
-
+udevadm info -a -n ttyACM0
 ```
 
 ## USB devices
@@ -144,6 +144,7 @@ which simulates how udev applies its rules.
 
 - Text resource (French): https://doc.ubuntu-fr.org/udev
 
+
 ## Python
 
 One can have some information about devices connected to COM ports using the `serial` module:
@@ -151,4 +152,31 @@ One can have some information about devices connected to COM ports using the `se
 from serial.tools import list_ports
 ports = list_ports.comports()
 ```
-which gives a list of ports, which have various attributes including `.manufacturer` and `.name`, which seems fo give the device node name (e.g. `ttyACMO`), and `.usb_interface_path` which can be useful for `udevadm test` (see above).
+which gives a list of ports, which have various attributes including `.manufacturer` and `.name`, which seems to give the device node name (e.g. `ttyACMO`), and `.usb_interface_path` which can be useful for `udevadm test` (see above).
+
+
+## Troubleshooting
+
+If there are errors when trying to access the port (e.g. permission problems etc.), after defining udev rules, it might be that the symlink created with udev does not point to the correct device. This can be checked with
+```bash
+ls -l /dev
+```
+If the custom device points to e.g. `/usb/bus...` instead of `ttyACM0`, one solution is to add the *SUBSYSTEM* or *KERNEL* attribute specification in the udev rules if not present.
+
+If the problem persists, it may be that the user does not have the correct permissions, see e.g.
+https://askubuntu.com/questions/210177/serial-port-terminal-cannot-open-dev-ttys0-permission-denied
+(user must be in the `dialout` permission group in order to use tty devices).
+This can be checked with
+```bash
+groups username
+```
+(which must list `dialout` ; replace username by actual user name)
+
+If dialout is not listed, it can be added with either
+```bash
+sudo gpasswd --add username dialout
+```
+or
+```bash
+sudo adduser username dialout
+```
