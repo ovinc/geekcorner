@@ -11,5 +11,6 @@ At the moment it includes :
 - [Oh-My-Posh](ohmyposh/README.md) prompt renderer
 - [Cameras](cameras/README.md) setup
 - [Zotero](zotero/README.md) reference manager
+- [Inkscape](inkscape/README.md) graphical design
 
 (click on links above to access the different items)
