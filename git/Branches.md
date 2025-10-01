@@ -55,6 +55,11 @@ git merge --squash branchname
 
 (to delete the branch after this, run delete with -D option because some elements of the branch are considered not merged)
 
+## Rename branch
+
+```bash
+git branch -m oldname newname
+```
 
 ## Clone all remote branches
 
