@@ -62,6 +62,13 @@ https://help.ubuntu.com/community/UsingTheTerminal
 | `rm -r foldername` | delete folder recursively |
 
 
+### Copy entire folder to another folder
+
+Use the recursive option in the copy command
+```bash
+cp -r folder1 folder2
+```
+
 ### Move all files form a folder to another
 
 - With folders
