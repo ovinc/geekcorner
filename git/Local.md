@@ -91,6 +91,20 @@ git diff --staged
 ```
 (press "q" to exit)
 
+See differences between last commit and current non-commited state
+```bash
+git diff HEAD
+```
+
+See differences between current commit and previous commit
+```bash
+git diff HEAD~1 HEAD
+```
+
+Differences between two specific commits
+```bash
+git diff commit1 commit2
+```
 
 ## Temporarily save changes without commiting
 
