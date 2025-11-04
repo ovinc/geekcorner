@@ -14,3 +14,13 @@ For example,
 git fetch hub pull/14/head:test
 git checkout test
 ```
+
+## Automatic coding language detection
+
+Sometimes github automatically detects a language that is not correct,
+e.g. because there are a large number of example files that are Jupyter notebooks in a python package.
+To make github ignore files, create a file named `.gitattributes` in the root of the repo and write
+```bash
+*.ipynb linguist-detectable=false
+```
+
