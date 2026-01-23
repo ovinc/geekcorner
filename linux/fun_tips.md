@@ -14,3 +14,9 @@ speedtest
 ```
 (needs to have speedtest installed:
 https://www.speedtest.net/fr/apps/cli)
+
+On macOS there's also a tool by default:
+```bash
+networkQuality
+```
+
