@@ -2,6 +2,7 @@ The Geek's corner is a collection of personal notes and tips (Markdown format) o
 
 At the moment it includes :
 
+- [Python](python/README.md) tools and tips
 - [Brave](brave/README.md) browser
 - [git](git/README.md) (version control)
 - [Linux](linux/README.md) (bash etc.)
