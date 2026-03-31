@@ -42,6 +42,11 @@ Undo staging of a specific file by replacing it with the version of the file in 
 git reset HEAD filename
 ```
 
+Replace (or create) file using file present in another branch
+```bash
+git checkout otherbranchname -- filename
+```
+
 
 ## Remove file from tree (stop tracking file)
 
